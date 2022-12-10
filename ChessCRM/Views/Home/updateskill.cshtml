@@ -1,0 +1,29 @@
+﻿@model Student
+@{ 
+    ViewBag.Title = "Update Skill";
+}
+
+<h2>Update Student Skill</h2>
+<h3>@Model.Fname @Model.Lname</h3>
+
+    <form asp-action="UpdateSkill" method="post">
+        <div class="form-group">
+            <label asp-for="Fname">First Name: @Model.Fname</label>
+            <label asp-for="Lname">Lastname Name: @Model.Lname</label>
+            <label asp-for="StudentID">ID #: @Model.StudentID</label>
+            <label asp-for="Skill">Skill</label>
+            <select asp-for="Skill" name="Skill">
+                <option value="white">White Belt</option>
+                <option value="yellow">Yellow Belt</option>
+                <option value="orange">Orange Belt</option>
+                <option value="green">Green Belt</option>
+                <option value="purple">Purple Belt</option>
+                <option value="blue">Blue Belt</option>
+                <option value="brown">Brown Belt</option>
+                <option value="red">Red Belt</option>
+                <option value="black">Black Belt</option>
+            </select>
+        </div>
+        <input type="hidden" asp-route-id ="Student" />
+        <button type="submit" class="btn btn-primary">Update</button>
+    </form>

@@ -1,0 +1,35 @@
+﻿@model EvaluateClassViewModel
+
+@{
+    ViewBag.Title = "Evaluation";
+}
+<div>
+    <h2>Evaluation</h2>
+    <h3>@Model.Product.ProductName</h3>
+</div>
+<div>
+    <a asp-controller="home" asp-action="NextStudent" >Evaluate the Next Student</a>
+</div>
+<div>
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Skill Level</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var s in Model.SQueue)
+            {
+            <tr>
+                <td>@s.Fname</td>
+                <td>@s.Lname</td>
+                <td>@s.Skill</td>
+                <td><a asp-controller="home" asp-action="updateskill" asp-route-id="@s.StudentID.ToString()">Update Skill</a></td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>  

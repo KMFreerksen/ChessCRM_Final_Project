@@ -1,0 +1,39 @@
+﻿@model AcademyViewModel
+@{
+    ViewBag.Title = "Academy_Dashboard";
+}
+
+<h2>Academy Dashboard</h2>
+<body>
+    <div>
+        <h3>Current Events</h3>
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Event</th>
+                    <th>Start Date</th>
+                    <th>Location</th>
+                    <th>Current Enrollment</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var product in Model.CurrentProducts){
+                <tr>
+                    <td>@product.ProductName</td>
+                    <td>@product.StartDateTime</td>
+                    <td>@product.Location</td>
+                    <td><a asp-controller="home" asp-action="getcurrentenrollment" asp-route-input="@product.ProductID.ToString()">View</a></td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <div>
+        <h3>Menu</h3>
+        <ul>
+            <li><a asp-controller="" asp-action="StudentList">View All Students</a></li>
+            <li><a asp-controller="" asp-action="ProductList">View All Events</a></li>
+            <li><a asp-controller="" asp-action="SchoolList">View Affiliated Schools</a></li>
+        </ul> 
+    </div>
+</body>
